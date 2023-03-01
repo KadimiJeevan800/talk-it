@@ -148,6 +148,15 @@
     }
 }
 
+form 
+{
+    input [type=text]
+{
+    padding: 10px;
+    margin:10px 0px;
+}
+}
+
 @media screen and (max-width:992px) {
     .games
     {

@@ -30,6 +30,7 @@ export default function Puzzle() {
   
   function game()
   {
+    // window.location.reload(false)
     document.getElementById('text').innerText="Play";
     var card = document.getElementById('card0');
     var card1 = document.getElementById('card1');
@@ -52,7 +53,8 @@ export default function Puzzle() {
     document.getElementById('c'+rand).innerHTML=`<img src=${ironman} width="100px" height="100px" />`;
   }
   // game();
-  // setTimeout(game(),1000);
+  setTimeout(()=>(game()),1000);
+  // await sleep(3000);
   return (
     <div style={{textAlign:"center"}}>
       {

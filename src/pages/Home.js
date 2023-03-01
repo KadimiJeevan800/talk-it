@@ -33,18 +33,18 @@ export default function Home() {
       <img src={iron_man}  style={{WebkitBoxReflect:"right"}} alt="iron man"/>
     
 
-      <div className='road ' id='road ' style={{width:"100%",height:"190px",background:"black",border:"2px solid antiquewhite"}}>
+      <div className='road ' id='road ' style={{width:"100%",height:"auto",background:"black",border:"2px solid antiquewhite"}}>
       <marquee style={{color:"white"}} scrollamount="10">
         <img src={car3} width="50px" style={{borderRadius:"20px"}} height="30px" alt='cars' />
       </marquee>
-      <span style={{color:"white"}}>- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span>
+      <span style={{color:"white",borderRight:"3px solid white"}}>- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span>
       <marquee style={{color:"white",borderBottom:"3px solid white"}} scrollamount="40">
         <img src={car4} width="50px" style={{borderRadius:"20px"}} height="30px"  alt='cars'/>
       </marquee>
       <marquee style={{color:"white"}} direction="right">
       <img src={car1} width="50px" style={{borderRadius:"20px"}} height="30px" alt='cars' />
       </marquee>
-      <span style={{color:"white"}}>- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span>
+      <span style={{color:"white",borderRight:"3px solid white"}}>- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span>
       <marquee style={{color:"white"}} direction="right" scrollamount="20">
       <img src={car2} width="50px" style={{borderRadius:"20px"}} height="30px" alt='cars' />
       </marquee>

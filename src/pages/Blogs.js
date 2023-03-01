@@ -74,6 +74,11 @@ export default function Blogs() {
     function fncomment(id)
     {
         var data=document.getElementById('cmt-inp'+id).value;
+        if(data==='')
+        {
+            alert("Please provide data..");
+            return;
+        }
         console.log(data)
         dispatch(comment({ id: id, cmts: data }));
         document.getElementById('chat-box'+id).style.display="none";
@@ -137,7 +142,7 @@ export default function Blogs() {
                                 </div>
                                 {/* <span> {data.pid}</span> */}
                                 <span> {data.msg}</span>
-                                <span className='post-reactiions' style={{ display: "grid", gridTemplateColumns: "auto auto auto", padding: "10px" }}>
+                                <span className='post-reactions' style={{ display: "grid", gridTemplateColumns: "auto auto auto", padding: "10px" }}>
 
                                     <div>
                                         {data.like}
@@ -159,7 +164,7 @@ export default function Blogs() {
                                             </span>
                                             <span>
                                                 <span class="material-symbols-outlined button" style={{cursor:"pointer"}} onClick={()=>(fncomment(data.pid))}>
-                                                    chat_paste_go
+                                                chevron_right
                                                 </span>
                                             </span>
                                             
@@ -175,7 +180,7 @@ export default function Blogs() {
                                 </span>
                             </div>
                             <div style={{backgroundColor:"lightgoldenrodyellow",paddingLeft:"10px",border:"1px solid black",borderRadius:"10px"}}>
-                            Comments : &nbsp;
+                            Replies : &nbsp;
                             {
                             data.comments.map(item=>
                                 {

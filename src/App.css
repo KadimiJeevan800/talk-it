@@ -96,7 +96,7 @@
   left: 0;
   opacity: 0;
   text-align: center;
-  top: 0;
+  top: 50px;
   visibility: hidden;
   z-index: -99999;
 }
@@ -116,12 +116,12 @@
 }
 
 .dropdown-menu a:hover {
-  background: #ba68c8;
+  background: #205295;
   color: #fff;
 }
 
 .dropdown:hover .dropdown-menu {
-  background: #7b1fa2;
+  background: #205295;
   opacity: 1;
   visibility: visible;
   /* top: 100%; */

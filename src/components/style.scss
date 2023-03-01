@@ -4,7 +4,16 @@ header
     top: 0;
     z-index: 2;
 }
-
+#menu-icon
+{
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: xx-large;
+}
+#menu-icon:hover
+{
+    color: darkgoldenrod;
+}
 
 nav{
     ul
@@ -41,4 +50,49 @@ footer{
     text-align: center;
     background-color: #205295;
     color: white;
+}
+
+.mobile-menu{
+    display: none;
+}
+.menu-icon
+{
+    display: none;
+}
+.site-navbar
+{
+    position: relative;
+}
+
+@media screen and (max-width:992px) {
+    .menu-icon
+    {
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 25px;
+        float: right;
+        font-size: xx-large;
+    }
+    .mobile-menu
+    {
+        position: absolute;
+        top: 58px;
+        right: 0px;
+        background-color: #0046a0;
+        padding: 40px 80px;
+        li 
+        {
+            padding: 10px 0px;
+            a 
+            {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .desktop-menu
+    {
+        display: none;
+    }
 }

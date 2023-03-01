@@ -3,7 +3,7 @@ import React from 'react'
 export default function footer() {
   return (
     <div className='footer'>
-      Footer Works...
+      Live Play Like Share Comment
     </div>
   )
 }

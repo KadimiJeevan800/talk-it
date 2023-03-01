@@ -4,13 +4,25 @@ import '../App.css';
 import './style.scss';
 import logo from '../images/logo.jpg';
 export default function header() {
+  function menu()
+  {
+    var x = document.getElementById("mobile-m");
+    
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      document.getElementById('menu-icon').innerText="menu";
+    } else {
+      x.style.display = "block";
+      document.getElementById('menu-icon').innerText="close";
+    }
+  }
   return (
     <div className='header'>
     <div className='logo'>
       <Link to="/"><img src={logo} width="100px" height="70px"/></Link> 
     </div>
-    <nav>
-        <ul >
+    <nav className='site-navbar'>
+        <ul className='desktop-menu'>
           <li>
             <Link to="/games" className='hov'>Games</Link>
           </li>
@@ -26,6 +38,16 @@ export default function header() {
               <li><a href="#">action 4</a></li>
             </ul>
           </li>
+        </ul>
+        <div className='menu-icon  hov' onClick={()=>(menu())}> 
+          <span class="material-symbols-outlined " id='menu-icon' >
+            menu
+          </span>
+        </div>
+        <ul className='mobile-menu' id='mobile-m'>
+          <li>  <Link to="/games" className='hov'>Games</Link></li>
+          <li>  <Link to="/blogs" className='hov'>Blogs</Link></li>
+          <li>   <Link to="/contact" className='hov'>Contact</Link></li>
         </ul>
       </nav>
     </div>
