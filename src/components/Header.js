@@ -3,7 +3,13 @@ import {  Link } from "react-router-dom";
 import '../App.css';
 import './style.scss';
 import logo from '../images/logo.jpg';
+import $ from 'jquery';
 export default function header() {
+
+  $('#g').click(()=>
+  {
+    alert("Clicked..");
+  })
   function menu()
   {
     var x = document.getElementById("mobile-m");
@@ -19,11 +25,11 @@ export default function header() {
   return (
     <div className='header'>
     <div className='logo'>
-      <Link to="/"><img src={logo} width="100px" height="70px"/></Link> 
+      <Link to="/"><img src={logo} alt="site logo" width="100px" height="70px"/></Link> 
     </div>
     <nav className='site-navbar'>
         <ul className='desktop-menu'>
-          <li>
+          <li  id='g'>
             <Link to="/games" className='hov'>Games</Link>
           </li>
           <li>
@@ -33,9 +39,9 @@ export default function header() {
             <Link to="/contact" class=" hov">Contact</Link>
             <ul class="dropdown-menu">
               <li><Link to="/person">Persons</Link></li>
-              <li><a href="#">action 2</a></li>
-              <li><a href="#">action 3</a></li>
-              <li><a href="#">action 4</a></li>
+              <li><Link to="#">action 2</Link></li>
+              <li><Link to="#">action 3</Link></li>
+              <li><Link to="#">action 4</Link></li>
             </ul>
           </li>
         </ul>
@@ -45,9 +51,9 @@ export default function header() {
           </span>
         </div>
         <ul className='mobile-menu' id='mobile-m'>
-          <li>  <Link to="/games" className='hov'>Games</Link></li>
-          <li>  <Link to="/blogs" className='hov'>Blogs</Link></li>
-          <li>   <Link to="/contact" className='hov'>Contact</Link></li>
+          <li>  <Link to="/games" className=''>Games</Link></li>
+          <li>  <Link to="/blogs" className=''>Blogs</Link></li>
+          <li>   <Link to="/contact" className=''>Contact</Link></li>
         </ul>
       </nav>
     </div>

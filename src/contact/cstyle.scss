@@ -1,0 +1,32 @@
+.anime {
+    width: 100px;
+    height: 100px;
+    // position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    margin-left: 10px;
+  }
+  
+//   @keyframes example {
+//     from {background-color: red;}
+//     to {background-color: yellow;}
+//   }
+
+// @keyframes example {
+//     0%   {background-color: red;}
+//     25%  {background-color: yellow;}
+//     50%  {background-color: blue;}
+//     100% {background-color: green;}
+//   }
+
+/* The animation code */
+@keyframes example {
+    0%   {background-color:red; left:0px; top:0px;  transform: rotateX(0deg);}
+    25%  {background-color:yellow; left:200px; top:0px;  transform: rotateX(90deg);}
+    50%  {background-color:blue; left:200px; top:200px;  transform: rotateX(180deg);}
+    75%  {background-color:green; left:0px; top:200px;  transform: rotateX(270deg);}
+    100% {background-color:red; left:0px; top:0px;  transform: rotateX(360deg);}
+  }
+  

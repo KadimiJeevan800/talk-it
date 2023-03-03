@@ -22,7 +22,8 @@ export default function Blogs() {
         }
         count = count + 1;
         dispatch(add({ msg: form }));
-        console.log(form)
+        console.log(form);
+        
         form = ' ';
         console.log(form)
         document.getElementById('pop-up-msg').style.display = "block";
@@ -61,11 +62,13 @@ export default function Blogs() {
         if(flag===0)
         {
             document.getElementById('chat-box'+id).style.display="block";
+            document.getElementById('comment-section'+id).style.display="block";
             flag=1;
         }
         else
         {
-            document.getElementById('chat-box'+id).style.display="none";
+            // document.getElementById('chat-box'+id).style.display="none";
+            document.getElementById('comment-section'+id).style.display="none";
             flag=0;
         }
        
@@ -81,7 +84,7 @@ export default function Blogs() {
         }
         console.log(data)
         dispatch(comment({ id: id, cmts: data }));
-        document.getElementById('chat-box'+id).style.display="none";
+        // document.getElementById('chat-box'+id).style.display="none";
         flag=0;
     }
     return (
@@ -114,7 +117,7 @@ export default function Blogs() {
                 {
                     post.map((data) =>
                     (
-                        <div>
+                        <div style={{border:"2px solid black",margin:"10px 0px",padding:"10px",borderRadius:"10px"}}>
                             <div className='post'>
 
                                 <div style={{ display: "flex", flexDirection: "row", marginLeft: "auto" }}>
@@ -158,17 +161,7 @@ export default function Blogs() {
                                         <span className="material-symbols-outlined hov" onClick={() => (Comments(data.pid))} style={{ marginTop: "20px" }}>
                                             chat
                                         </span>
-                                        <div id={'chat-box'+data.pid} style={{display:"none"}}>
-                                            <span style={{marginRight:"5px"}}>
-                                                <input type="text" id={"cmt-inp"+data.pid } />
-                                            </span>
-                                            <span>
-                                                <span class="material-symbols-outlined button" style={{cursor:"pointer"}} onClick={()=>(fncomment(data.pid))}>
-                                                chevron_right
-                                                </span>
-                                            </span>
-                                            
-                                        </div>
+                                       
                                        
                                     </div>
                                     <div>
@@ -179,12 +172,25 @@ export default function Blogs() {
 
                                 </span>
                             </div>
-                            <div style={{backgroundColor:"lightgoldenrodyellow",paddingLeft:"10px",border:"1px solid black",borderRadius:"10px"}}>
+                            <div id={'comment-section'+data.pid} style={{display:"none",backgroundColor:"lightgoldenrodyellow",paddingLeft:"10px",borderBottomRightRadius:"30px"}}>
+                            <div id={'chat-box'+data.pid} style={{display:"none",marginTop:"5px",textAlign:"center"}}>
+                                Chat : &nbsp;
+                                            <span style={{marginRight:"5px"}}>
+                                                <input type="text" id={"cmt-inp"+data.pid } />
+                                            </span>
+                                            <span>
+                                                <span class="material-symbols-outlined button" style={{cursor:"pointer",fontSize:"15px"}} onClick={()=>(fncomment(data.pid))}>
+                                                chevron_right
+                                                </span>
+                                            </span>
+                                            
+                                        </div><br/>
+                            
                             Replies : &nbsp;
                             {
                             data.comments.map(item=>
                                 {
-                                    return <p><img src={profile}  width="40px" height="40px"/> &nbsp; {item}</p>
+                                    return <p><img src={profile} alt="profile" width="40px" height="40px" style={{borderRadius:"50%"}}/> &nbsp; {item}</p>
                                 })
                             
                             }
@@ -197,7 +203,7 @@ export default function Blogs() {
 
 
             </div>
-            <div className='pop-up-msg' id='pop-up-msg' style={{ display: "none", position: "fixed", top: "150px", background: "white", padding: "10%", marginLeft: "28%", border: "2px solid black" }}>
+            <div className='pop-up-msg' id='pop-up-msg' style={{ display: "none", position: "fixed", top: "50px", background: "white", padding: "5%", marginLeft: "40%", border: "2px solid black" }}>
                 hello world
             </div>
         </div>

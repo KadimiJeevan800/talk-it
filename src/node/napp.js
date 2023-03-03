@@ -29,6 +29,8 @@ app.get('/users',(req,res)=>
     })
 });
 
+// app.use(cors())
+
 app.listen(3003,()=>
 {
     console.log("Listening at port 3003")

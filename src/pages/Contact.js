@@ -1,33 +1,51 @@
 import React from 'react'
 import './pstyle.scss';
+import cover from '../images/con2.jpg';
+import user,{login} from '../features/user';
+import { useDispatch } from 'react-redux';
 export default function Contact() {
-    const mapStyles = {
-        width: '100%',
-        height: '100%',
-      };
-  return (
-    <div className='Contact-page'>
-      Contact Works....
+  var dispatch=useDispatch();
+   function handleSubmit(e){
+    e.preventDefault();
+    //  console.log(e.target["0"].value);
+     var name=e.target["0"].value;
+     var cmp=e.target["1"].value;
+     var dob=e.target["2"].value
+      dispatch(login({id:1,name:name,company:cmp,dob:dob}));
 
-      <form>
+   }
+  return (
+    <div className='Contact-page' style={{textAlign:"center"}}>
+      {/* <img src={cover} alt="cover page" />
+      
+      */}
+      <img src={require('../images/con2.jpg')} alt="cover page " />
+      <h3 >Let's Start a Converstion</h3>
+      <div>
+          <div>
+              Personal Information <hr ></hr> 
+          </div>
+          
+          <div>
+          <form style={{padding:"10px"}} onSubmit={handleSubmit}>
         <div>
-            <label >Name : </label>
-            <input type="text" required placeholder='Enter Your Name ...' />
+            
+            <input type="text" name='name' required placeholder='Enter Your Name ...' />
         </div>
         <div>
-            <label>password : </label>
-            <input type="text" required placeholder='Enter Password' />
+            
+            <input type="text" required placeholder='Enter Company' />
         </div>
         <div>
             <label >Date of Birth </label>
-            <input type="date" />
+            <input type="date"  placeholder="Doate of Birth"/>
         </div>
-        <div>
-          <label>City</label>
-          <input type="text" placeholder='Enter your City ' />
-        </div>
-        <input type="submit" value="Add User " />
+       
+        <input type="submit" className='button' value="Submit " />
       </form>
+          </div>
+
+      </div>
    
     </div>
   )
