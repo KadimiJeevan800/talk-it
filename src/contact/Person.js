@@ -1,40 +1,133 @@
-import React from 'react'
+
+import React,{useEffect,useState} from 'react'
 import './cstyle.scss';
+import styled from "styled-components";
+
+// Styled component named StyledButton
+const StyledButton = styled.button`
+  background-color: black;
+  font-size: 20px;
+  color: white;
+  cursor:pointer;
+  &:hover 
+  {
+    background-color: white;
+    color:black
+  }
+`;
+
+const StyledDiv= styled.div`
+
+background-color : grey;
+padding:10px;
+color:white;
+`;
+
+// const 
 export default function Person() {
-  //   const [user, setUser] = useState([]);
+    const [user, setUser] = useState([]);
 
-  // const fetchData = () => {
-  //   return fetch("http://localhost:3003/users")
-  //         .then((response) => response.json())
-  //         .then((data) => setUser(data));
-  // }
+    const [selectedUser,setSelectedUser]=useState([]);
+    // console.log(selectedUser);
 
-  // useEffect(() => {
-  //   fetchData();
-  // },[])
+  const editUser=(id)=>
+  {
+    console.log("Editing User : "+ id);
+    // fetch
+  }
+
+  const delUser =(id) =>
+  {
+    console.log("user : "+id);
+    fetch("http://localhost:3001/rm/"+id,{
+      method:"delete",
+    })
+
+    // getUser();
+  }
+   const sortUser=()=>
+   {
+    fetch("http://localhost:3001/sort")
+    .then((response) => response.json())
+     .then((data) => setUser(data));
+   } 
+
+  const getUser=()=>
+  {
+    var id=document.getElementById('uid').value;
+    // console.log(id);
+    if(id==='')
+    {
+      fetch("http://localhost:3001/users")
+         .then((response) => response.json())
+          .then((data) => { setUser(data)});
+          return
+    }
+    fetch("http://localhost:3001/user/"+id)
+         .then((response) => response.json())
+          .then((data) => {setSelectedUser(data);  setUser(data)});
+
+          
+  }  
+  const fetchData = () => {
+    return fetch("http://localhost:3001/users")
+          .then((response) => response.json())
+          .then((data) => setUser(data))
+          .catch(err=>{console.log("Error : "+err)});
+  }
+
+  useEffect(() => {
+    fetchData();
+  },[user])
 
   // console.log(user);
-  var flag=0;
-  function add()
-  {
-    if(flag===0)
-    {
-      document.getElementById('1').style.display="block";
-      document.getElementById('2').style.display="none";
-      flag=1;
-    }
-    else
-    {
-      document.getElementById('1').style.display="none";
-      document.getElementById('2').style.display="block";
-      flag=0;
-    }
-  }
+
   document.getElementById('cards')
   return (
     <div style={{textAlign:"center",alignItems:"center"}}>
-      Person Works...!
-      <div style={{display:"flex"}}>
+     Data From Users Table
+     <div style={{margin:"15px 0px"}}>
+
+          <StyledDiv>
+            <label> USER ID : </label>
+            <input type="number" id='uid'  onChange={getUser} style={{padding:"5px"}} placeholder=' ID ' />
+
+            <button onClick={getUser} className="button" style={{marginLeft:"10px"}}><span className="material-symbols-outlined" style={{fontSize:"17px"}}>search</span> </button>
+          </StyledDiv>
+        </div>
+
+      <table id='customers'>
+        <thead>
+          <tr>
+            <th style={{textAlign:"center"}}>ID</th>
+            <th style={{textAlign:"center"}}>Name <StyledButton><span className="material-symbols-outlined "  onClick={sortUser}>sort</span></StyledButton>  </th>
+            <th style={{textAlign:"center"}}>Team </th>
+            <th style={{textAlign:"center"}}>Actions </th>
+          </tr>
+        
+      </thead>
+      <tbody>
+      {user.length!==0 ? user.map((u)=>   
+       (
+          <tr className='data'>
+            <td>{u.ID}</td>
+            <td>{u.name}</td>
+            <td>{u.address}</td>
+            <td style={{display:"flex",justifyContent:"space-evenly"}}>
+              <button style={{background:"red",color:"white"}} className="material-symbols-outlined " onClick={()=>{delUser(u.ID)}}>delete</button>
+              <button style={{background:"green",color:"white"}} className="material-symbols-outlined"  onClick={()=>{editUser(u.ID)}} >edit</button>
+            </td>
+          </tr>
+        )) : 
+        <tr>
+          
+          <td colSpan="5">"No Data"</td>
+              
+        </tr>
+        }
+      </tbody>
+      </table>
+      <div style={{display:"flex",margin:"20px 0px",justifyContent:"center"}}>
         <div className='anime'> 
           
         </div>
@@ -42,24 +135,36 @@ export default function Person() {
   
         </div>
       </div>
-      <div style={{display:"flex"}}>
-        <div className='anime'> 
-
-        </div>
-        <div className='anime'> 
-  
-        </div>
-      </div>
+     
       
-    <button onClick={add}>click</button>
-      <div >
-          <div id='1'>
-1234567890
+       
+
+        <div>
+          {
+          selectedUser.length===0 ? 
+          <div>
+              "No Data Found "
           </div>
-          <div id='2'> 
-asdfghjklqwertyuiopzxcvbnm
+          : selectedUser.map((su)=>
+          (
+            <div>
+              <p>Recent Search</p>
+              <p>{su.ID}</p>
+              <p>{su.name}</p>
+              <p>{su.address}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{display:"flex",justifyContent:"center",margin:"20px 0px"}}>
+          <div className='anime'> 
+
           </div>
-      </div>
+          <div className='anime'> 
+  
+          </div>
+        </div>
+
       {/* <div className='anime'> 
         
       </div>

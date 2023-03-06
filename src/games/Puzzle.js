@@ -11,8 +11,6 @@ export default function Puzzle() {
   var count = 0;
   function check(id) {
     var data = document.getElementById("c" + id).innerText;
-    console.log(data);
-   
    
     if (data !== "Nothing") {
       console.log("You won");
@@ -23,35 +21,6 @@ export default function Puzzle() {
     }
   }
 
-  // function game() {
-  //   // window.location.reload(false)
-  //   document.getElementById("text").innerText = "Play";
-  //   var card = document.getElementById("card0");
-  //   var card1 = document.getElementById("card1");
-  //   var card2 = document.getElementById("card2");
-  //   var card3 = document.getElementById("card3");
-
-  //   card.addEventListener("click", function () {
-  //     card.classList.toggle("is-flipped");
-  //   });
-
-  //   card1.addEventListener("click", function () {
-  //     card1.classList.toggle("is-flipped");
-  //   });
-  //   card2.addEventListener("click", function () {
-  //     card2.classList.toggle("is-flipped");
-  //   });
-  //   card3.addEventListener("click", function () {
-  //     card3.classList.toggle("is-flipped");
-  //   });
-  //   // document.getElementById('c'+rand).innerText="Cat";
-  //   document.getElementById(
-  //     "c" + rand
-  //   ).innerHTML = `<img src=${ironman} width="100px" height="100px" />`;
-  // }
-  // game();
-  // setTimeout(() => game(), 1000);
-  // await sleep(3000);
 
   function fun(id)
   {
@@ -84,21 +53,14 @@ export default function Puzzle() {
       <h2 style={{color:"brown"}}>
         {fla}
       </h2>
-      {/* <h2 id="text" style={{ color: "brown" }}>
-        Game Paused{" "}
-      </h2>
-      <button onClick={() => game()} className="button">
-        Re-Start
-      </button> */}
+   
       <h3 style={{ textAlign: "center", color: "green" }}>
         Find the Iron Man ?
       </h3>
       <p style={{ textAlign: "center", color: "blue" }}>
         Only 3 Chances per Game...
       </p>
-      {/* <h4 style={{ textAlign: "center", color: "red" }}>
-        Click on Restart button Before you play the Paused game...
-      </h4> */}
+     
       <div class="scene scene--card">
         <div class="card" id="card1" onClick={() => fun(1)}>
           <div class="card__face card__face--front">1</div>

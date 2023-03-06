@@ -22,10 +22,10 @@ export default function Blogs() {
         }
         count = count + 1;
         dispatch(add({ msg: form }));
-        console.log(form);
+        // console.log(form);
         
         form = ' ';
-        console.log(form)
+        // console.log(form)
         document.getElementById('pop-up-msg').style.display = "block";
         document.getElementById('pop-up-msg').innerText = "Posted";
         setTimeout(() => {
@@ -82,7 +82,7 @@ export default function Blogs() {
             alert("Please provide data..");
             return;
         }
-        console.log(data)
+        // console.log(data)
         dispatch(comment({ id: id, cmts: data }));
         // document.getElementById('chat-box'+id).style.display="none";
         flag=0;
@@ -117,7 +117,7 @@ export default function Blogs() {
                 {
                     post.map((data) =>
                     (
-                        <div style={{border:"2px solid black",margin:"10px 0px",padding:"10px",borderRadius:"10px"}}>
+                        <div style={{margin:"10px 0px",padding:"10px",borderRadius:"10px"}}>
                             <div className='post'>
 
                                 <div style={{ display: "flex", flexDirection: "row", marginLeft: "auto" }}>

@@ -52,8 +52,21 @@ export default function header() {
         </div>
         <ul className='mobile-menu' id='mobile-m'>
           <li>  <Link to="/games" className=''>Games</Link></li>
-          <li>  <Link to="/blogs" className=''>Blogs</Link></li>
-          <li>   <Link to="/contact" className=''>Contact</Link></li>
+          <li>  <Link to="/blogs" className=''>Blogs</Link>
+          <ul className='drop' style={{flexDirection:"column"}}>
+              <li> <Link to="/Link">Link</Link></li>
+             
+          </ul>
+          
+          </li>
+          <li>   <Link to="/contact" className=''>Contact</Link>
+          <ul className='drop' style={{flexDirection:"column"}}>
+              <li> <Link to="/person">People</Link></li>
+              <li> <Link to="/action">Action</Link></li>
+              <li> <Link to="/action2">Action 2</Link></li>
+          </ul>
+          
+          </li>
         </ul>
       </nav>
     </div>
