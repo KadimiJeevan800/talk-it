@@ -1,17 +1,35 @@
 import React from "react";
 import "./pstyle.scss";
+import axios from 'axios';
 import cover from "../images/con2.jpg";
-import user, { login } from "../features/user";
+import  { login } from "../features/user";
 import { useDispatch } from "react-redux";
 export default function Contact() {
   var dispatch = useDispatch();
+  
   function handleSubmit(e) {
     e.preventDefault();
 
     var name = e.target["0"].value;
     var cmp = e.target["1"].value;
     var dob = e.target["2"].value;
+    var user ={
+      id:20,
+      name :name,
+      Team : cmp
+    }
     dispatch(login({ id: 1, name: name, company: cmp, dob: dob }));
+    fetch("http://localhost:3001/add/user",{
+      method:"post",
+      body:user
+    })
+    // axios.post(`http://localhost:3001/add/user`, { user })
+    // .then(res => {
+    //   console.log(res);
+    //   console.log(res.data);
+    // })
+
+    console.log("Data Inserted ...");
   }
   return (
     <div className="Contact-page" style={{ textAlign: "center" }}>
@@ -19,10 +37,10 @@ export default function Contact() {
       
       */}
       <img src={require("../images/con2.jpg")} alt="cover page" />
-      <h3>Let's Start a Converstion</h3>
+      <h2>Let's Start a Converstion</h2>
       <div>
         <div>
-          Personal Information <hr></hr>
+         Personal Information :-   <hr></hr> <hr/>
         </div>
 
         <div>
@@ -36,11 +54,11 @@ export default function Contact() {
               />
             </div>
             <div>
-              <input type="text" required placeholder="Enter Company" />
+              <input type="text" name="Team" required placeholder="Enter Team Name" />
             </div>
             <div>
-              <label>Date of Birth </label>
-              <input type="date" placeholder="Date of Birth" />
+              <label>Date of Join :  </label>
+              <input type="date" name="dob" placeholder="Date of Birth" />
             </div>
 
             <input type="submit" className="button" value="Submit " />

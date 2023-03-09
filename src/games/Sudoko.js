@@ -40,7 +40,7 @@ export default function Sudoko() {
                 break;
             }
         }
-        if(flag==0)
+        if(flag===0)
         {
             alert("You Won...!");
         }

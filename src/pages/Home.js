@@ -18,8 +18,8 @@ export default function Home() {
     <div>
       <h1>Player ID : {user.id}</h1>
       <h1>Player name : {user.name}</h1>
-      <h1> Company : {user.company} </h1>
-      <h1>Date of Birth : {user.dob}</h1>
+      <h1> Team : {user.company} </h1>
+      <h1>Date of Join : {user.dob}</h1>
     </div>
      
       {/* <button 

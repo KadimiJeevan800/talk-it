@@ -1,6 +1,6 @@
 import React from 'react'
 import './pstyle.scss';
-import no from '../images/bg2.jpg';
+// import no from '../images/bg2.jpg';
 export default function Nopage() {
   return (
     <div className='nopage'>

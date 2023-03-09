@@ -16,6 +16,15 @@ const StyledButton = styled.button`
   }
 `;
 
+const blueStyledButton =styled(StyledButton)`
+background-color: blue;
+
+
+&:hover
+{
+  color:blue;
+}
+`;
 const StyledDiv= styled.div`
 
 background-color : grey;
@@ -65,7 +74,7 @@ export default function Person() {
     }
     fetch("http://localhost:3001/user/"+id)
          .then((response) => response.json())
-          .then((data) => {setSelectedUser(data);  setUser(data)});
+          .then((data) => {setSelectedUser(data)});
 
           
   }  
@@ -94,6 +103,44 @@ export default function Person() {
 
             <button onClick={getUser} className="button" style={{marginLeft:"10px"}}><span className="material-symbols-outlined" style={{fontSize:"17px"}}>search</span> </button>
           </StyledDiv>
+        </div>
+
+        <div style={{display:"flex",margin:"20px 0px",justifyContent:"center"}}>
+        <div className='anime'> 
+          
+        </div>
+        <div className='anime'> 
+  
+        </div>
+      </div>
+     
+      
+       
+
+        <div>
+          {
+          selectedUser.length===0 ? 
+          <div>
+              "No Data Found "
+          </div>
+          : selectedUser.map((su)=>
+          (
+            <div>
+              <p> Search Item</p>
+              <p>{su.ID}</p>
+              <p>{su.name}</p>
+              <p>{su.address}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{display:"flex",justifyContent:"center",margin:"20px 0px"}}>
+          <div className='anime'> 
+
+          </div>
+          <div className='anime'> 
+  
+          </div>
         </div>
 
       <table id='customers'>
@@ -127,44 +174,10 @@ export default function Person() {
         }
       </tbody>
       </table>
-      <div style={{display:"flex",margin:"20px 0px",justifyContent:"center"}}>
-        <div className='anime'> 
-          
-        </div>
-        <div className='anime'> 
-  
-        </div>
-      </div>
-     
+
+        {/* <blueStyledButton>H</blueStyledButton> */}
       
-       
-
-        <div>
-          {
-          selectedUser.length===0 ? 
-          <div>
-              "No Data Found "
-          </div>
-          : selectedUser.map((su)=>
-          (
-            <div>
-              <p>Recent Search</p>
-              <p>{su.ID}</p>
-              <p>{su.name}</p>
-              <p>{su.address}</p>
-            </div>
-          ))}
-        </div>
-
-        <div style={{display:"flex",justifyContent:"center",margin:"20px 0px"}}>
-          <div className='anime'> 
-
-          </div>
-          <div className='anime'> 
-  
-          </div>
-        </div>
-
+            
       {/* <div className='anime'> 
         
       </div>

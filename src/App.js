@@ -1,5 +1,5 @@
-import 'devextreme/dist/css/dx.light.css';
-import ReactDOM from "react-dom/client";
+import "devextreme/dist/css/dx.light.css";
+// import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -20,12 +20,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="games" element={ <Games />} />
-          <Route path="xox" element={ <Xox />} />
-          <Route path="sudoko" element={ <Sudoko />} />
-          <Route path="rps" element={ <Rps />} />
-          <Route path="puzzle" element={ <Puzzle />} />
-          <Route path="blogs" element={ <Blogs />} />
+          <Route path="games" element={<Games />} />
+          <Route path="xox" element={<Xox />} />
+          <Route path="sudoko" element={<Sudoko />} />
+          <Route path="rps" element={<Rps />} />
+          <Route path="puzzle" element={<Puzzle />} />
+          <Route path="blogs" element={<Blogs />} />
           <Route path="person" element={<Person />} />
           {/* <Route path="blogs" element={<Blogs />} /> */}
           <Route path="contact" element={<Contact />} />
@@ -38,5 +38,3 @@ export default function App() {
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App />);
-
-
