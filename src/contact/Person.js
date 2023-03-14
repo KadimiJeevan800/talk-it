@@ -36,12 +36,25 @@ color:white;
 export default function Person() {
     const [user, setUser] = useState([]);
 
-    const [selectedUser,setSelectedUser]=useState([]);
+    const [selectedUser,setSelectedUser]=useState([{name:"",address:""}]);
     // console.log(selectedUser);
-
+  const Esubmit=()=>
+  {
+    console.log("Form Submitted");
+  }
   const editUser=(id)=>
   {
     console.log("Editing User : "+ id);
+    // window.scrollTo(1, 0)
+    fetch("http://localhost:3001/user/"+id)
+    .then((response) => response.json())
+    .then((data) => {setSelectedUser(data);});
+    var ele=document.getElementById('form-edit');
+    ele.style.display="block";
+   
+  //  document.getElementById('eusername').value=selectedUser[0].name;
+
+   ele.scrollIntoView();
     // fetch
   }
 
@@ -143,11 +156,35 @@ export default function Person() {
           </div>
         </div>
 
+        <div className='Edit-table-form' id="form-edit">
+        
+            Editor
+            <span style={{cursor:"pointer",position:"absolute",top:"2px",right:"5px"}} class="material-symbols-outlined hov" onClick={()=>{document.getElementById('form-edit').style.display="none"}}>
+              close
+            </span>
+            <div>
+              <form onSubmit={Esubmit}>
+                <div>
+                  <label >Name : </label>
+                  <input type='text' id="eusername" value={selectedUser[0].name} placeholder='Enter the name ' />
+                </div>
+                <div>
+                  <label>Team : </label>
+                  <input type="text" id="eteamname" value={selectedUser[0].address} placeholder='Enter the Team Name' />
+                </div>
+                <input  type="submit" value="Change " />
+                {/* <input type="reset" /> */}
+              </form>
+            </div>
+        </div>
+
       <table id='customers'>
         <thead>
           <tr>
             <th style={{textAlign:"center"}}>ID</th>
-            <th style={{textAlign:"center"}}>Name <StyledButton><span className="material-symbols-outlined "  onClick={sortUser}>sort</span></StyledButton>  </th>
+            <th style={{textAlign:"center"}}>Name
+             {/* <StyledButton><span className="material-symbols-outlined "  onClick={sortUser}>sort</span></StyledButton>   */}
+             </th>
             <th style={{textAlign:"center"}}>Team </th>
             <th style={{textAlign:"center"}}>Actions </th>
           </tr>

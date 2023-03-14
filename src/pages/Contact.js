@@ -14,20 +14,20 @@ export default function Contact() {
     var cmp = e.target["1"].value;
     var dob = e.target["2"].value;
     var user ={
-      id:20,
+      id:25,
       name :name,
       Team : cmp
     }
     dispatch(login({ id: 1, name: name, company: cmp, dob: dob }));
-    fetch("http://localhost:3001/add/user",{
-      method:"post",
-      body:user
-    })
-    // axios.post(`http://localhost:3001/add/user`, { user })
-    // .then(res => {
-    //   console.log(res);
-    //   console.log(res.data);
+    // fetch("http://localhost:3001/add/user",{
+    //   method:"post",
+    //   body:user
     // })
+    axios.post(`http://localhost:3001/add/user`, { user })
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
 
     console.log("Data Inserted ...");
   }
