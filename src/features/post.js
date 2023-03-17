@@ -5,8 +5,8 @@ import { createSlice } from "@reduxjs/toolkit";
 var count=2;
 const postSlice=createSlice({
     name:'post',
-    initialState:{value:[{pid:1,msg:"The man who does not read books has no advantage over the one who cannot read them.” —Mark Twain",like:1,comments:["Super"," nice"]},
-                        {pid:2,msg:"Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” —Malcolm X",like:3,comments:["Good"]}
+    initialState:{value:[{pid:1,msg:"Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor. ...",like:1,comments:["Super"," nice"]},
+                        {pid:2,msg:"If you have the opportunity to play this game of life you need to appreciate every moment.",like:3,comments:["Good"]}
                     ] 
                 },
     reducers:{

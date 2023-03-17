@@ -44,7 +44,7 @@ export default function Contact() {
         </div>
 
         <div>
-          <form style={{ padding: "10px" }} onSubmit={handleSubmit}>
+          <form style={{ padding: "10px" }} method="post" onSubmit={handleSubmit}>
             <div>
               <input
                 type="text"

@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "./style.scss";
-import logo from "../images/logo.jpg";
+// import logo from "../images/logo.jpg";
+import logo from '../images/gamer-logo.jpg';
 import $ from "jquery";
 export default function header() {
   $("#g").click(() => {

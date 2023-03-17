@@ -35,8 +35,9 @@ color:white;
 // const 
 export default function Person() {
     const [user, setUser] = useState([]);
+    const [EditUsers,setEditUsers]=useState([{}]);
 
-    const [selectedUser,setSelectedUser]=useState([{name:"",address:""}]);
+    const [selectedUser,setSelectedUser]=useState([]);
     // console.log(selectedUser);
   const Esubmit=()=>
   {
@@ -48,12 +49,11 @@ export default function Person() {
     // window.scrollTo(1, 0)
     fetch("http://localhost:3001/user/"+id)
     .then((response) => response.json())
-    .then((data) => {setSelectedUser(data);});
+    .then((data) => {setEditUsers(data);});
     var ele=document.getElementById('form-edit');
     ele.style.display="block";
    
   //  document.getElementById('eusername').value=selectedUser[0].name;
-
    ele.scrollIntoView();
     // fetch
   }
@@ -88,7 +88,6 @@ export default function Person() {
     fetch("http://localhost:3001/user/"+id)
          .then((response) => response.json())
           .then((data) => {setSelectedUser(data)});
-
           
   }  
   const fetchData = () => {
@@ -166,13 +165,13 @@ export default function Person() {
               <form onSubmit={Esubmit}>
                 <div>
                   <label >Name : </label>
-                  <input type='text' id="eusername" value={selectedUser[0].name} placeholder='Enter the name ' />
+                  <input type='text' id="eusername" defaultValue={EditUsers[0].name}  placeholder='Enter the name ' />
                 </div>
                 <div>
                   <label>Team : </label>
-                  <input type="text" id="eteamname" value={selectedUser[0].address} placeholder='Enter the Team Name' />
+                  <input type="text" id="eteamname" defaultValue={EditUsers[0].address} placeholder='Enter the Team Name' />
                 </div>
-                <input  type="submit" value="Change " />
+                <input  type="submit" id="change-btn-edit" value="Change " />
                 {/* <input type="reset" /> */}
               </form>
             </div>
@@ -198,8 +197,8 @@ export default function Person() {
             <td>{u.name}</td>
             <td>{u.address}</td>
             <td style={{display:"flex",justifyContent:"space-evenly"}}>
-              <button style={{background:"red",color:"white"}} className="material-symbols-outlined " onClick={()=>{delUser(u.ID)}}>delete</button>
-              <button style={{background:"green",color:"white"}} className="material-symbols-outlined"  onClick={()=>{editUser(u.ID)}} >edit</button>
+              <button  id="delete-btn-table" className="material-symbols-outlined " onClick={()=>{delUser(u.ID)}}>delete</button>
+              <button  id="edit-btn-table" className="material-symbols-outlined"  onClick={()=>{editUser(u.ID)}} >edit</button>
             </td>
           </tr>
         )) : 
