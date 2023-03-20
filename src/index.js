@@ -7,12 +7,14 @@ import {configureStore} from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import userReducer from './features/user';
 import postReducer from './features/post';
+import LoginReducer from './features/Session';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store =configureStore({
   reducer:{
     user:userReducer,
     post:postReducer,
+    userLogin:LoginReducer
   }
 })
 root.render(

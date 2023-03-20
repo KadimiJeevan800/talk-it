@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "./style.scss";
+import { login,logout } from "../features/Session";
+import { useDispatch } from "react-redux";
 // import logo from "../images/logo.jpg";
 import logo from '../images/gamer-logo.jpg';
 import $ from "jquery";
@@ -9,6 +11,16 @@ export default function header() {
   $("#g").click(() => {
     alert("Clicked..");
   });
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const dispatch=useDispatch();
+  function Logout()
+  {
+    console.log("Logout Process...");
+    document.getElementById('logout-btn').style.display="none";
+        // dispatch(login({id:1,name:"Alien",password:"Alien",isLogin:0}));
+        dispatch(logout({id:1,name:"Alien",password:"Alien",isLogin:0}));
+  }
   function menu() {
     var x = document.getElementById("mobile-m");
 
@@ -57,7 +69,16 @@ export default function header() {
                 <Link to="/act4">action 4</Link>
               </li>
             </ul>
+            
           </li>
+          <li id="logout-btn">
+              <Link className="hov" onClick={Logout}>
+              <span class="material-symbols-outlined">
+                logout
+              </span>
+                Log Out
+              </Link>
+            </li>
         </ul>
         <div className="menu-icon  hov" onClick={() => menu()}>
           <span class="material-symbols-outlined " id="menu-icon">
@@ -103,7 +124,16 @@ export default function header() {
               </li>
             </ul>
           </li>
+          <li id="logout-btn">
+              <Link className="hov" onClick={Logout}>
+              <span class="material-symbols-outlined">
+                logout
+              </span>
+                Log Out
+              </Link>
+            </li>
         </ul>
+      
       </nav>
     </div>
   );
