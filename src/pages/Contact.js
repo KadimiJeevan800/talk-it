@@ -1,7 +1,7 @@
 import React from "react";
 import "./pstyle.scss";
 import axios from 'axios';
-import cover from "../images/con2.jpg";
+// import cover from "../images/con2.jpg";
 import  { login } from "../features/user";
 import { useDispatch } from "react-redux";
 export default function Contact() {

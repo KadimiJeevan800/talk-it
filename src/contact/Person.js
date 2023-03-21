@@ -2,7 +2,6 @@
 import React,{useEffect,useState} from 'react'
 import './cstyle.scss';
 import styled from "styled-components";
-import { event } from 'jquery';
 import axios from 'axios';
 // Styled component named StyledButton
 const StyledButton = styled.button`
@@ -19,8 +18,6 @@ const StyledButton = styled.button`
 
 const blueStyledButton =styled(StyledButton)`
 background-color: blue;
-
-
 &:hover
 {
   color:blue;
@@ -70,8 +67,9 @@ export default function Person() {
     ele.style.display="block";
    
   //  document.getElementById('eusername').value=selectedUser[0].name;
-   ele.scrollIntoView();
-    // fetch
+  //  ele.scrollIntoView();
+  window.scrollTo(0,100);
+   
   }
 
   const delUser =(id) =>
@@ -122,7 +120,7 @@ export default function Person() {
   document.getElementById('cards')
   return (
     <div style={{textAlign:"center",alignItems:"center"}}>
-     Data From Users Table
+     
      <div style={{margin:"15px 0px"}}>
 
           <StyledDiv>

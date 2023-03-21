@@ -1,7 +1,7 @@
 // import React from 'react'
 import React, { Fragment } from 'react';
 
-import bg from '../images/bg.jpg';
+import bg from '../images/hbg1.jpg';
 import profile from '../images/profile.jpg';
 import './pstyle.scss';
 import { useDispatch } from 'react-redux';

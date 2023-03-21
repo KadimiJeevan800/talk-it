@@ -24,7 +24,7 @@ export default function LoginPage() {
         }
         else
         {
-          console.log("ok");
+          // console.log("ok");
           document.getElementById('logout-btn').style.display="block";
           console.log("Login Process...");
           dispatch(login({id:2,name:username,password:password,isLogin:1}))
