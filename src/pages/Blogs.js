@@ -1,4 +1,6 @@
-import React from 'react'
+// import React from 'react'
+import React, { Fragment } from 'react';
+
 import bg from '../images/bg.jpg';
 import profile from '../images/profile.jpg';
 import './pstyle.scss';
@@ -88,7 +90,7 @@ export default function Blogs() {
         flag=0;
     }
     return (
-        <div>
+        <Fragment>
 
             <div className='blog-img'>
                 <div className='blog-img-text'>
@@ -206,6 +208,6 @@ export default function Blogs() {
             <div className='pop-up-msg' id='pop-up-msg' style={{ display: "none", position: "fixed", top: "50px", background: "white", padding: "5%", marginLeft: "40%", border: "2px solid black" }}>
                 hello world
             </div>
-        </div>
+        </Fragment>
     )
 }

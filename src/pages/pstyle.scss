@@ -327,10 +327,7 @@ form
     .background{
         width: 430px;
         height: 520px;
-        // position: absolute;
         transform: translate(-50%,-50%);
-        // left: 50%;
-        // top: 50%;
         margin-left: 45%;
     }
     .background .shape{
@@ -345,8 +342,9 @@ form
             #1845ad,
             #23a2f6
         );
-        left: -80px;
-        top: -80px;
+        left: 40px;
+        // top: -80px;
+        bottom: -66px;
     }
     .shape:last-child{
         background: linear-gradient(
@@ -354,8 +352,8 @@ form
             #ff512f,
             #f09819
         );
-        right: -30px;
-        bottom: -80px;
+        right: -58px;
+        bottom: -680px;
     }
     form{
         margin-left: 50%;
@@ -409,7 +407,7 @@ form
     button{
         margin-top: 50px;
         width: 100%;
-        background-color: #ffffff;
+        // background-color: #ffffff;
         color: #080710;
         padding: 15px 0;
         font-size: 18px;
@@ -421,20 +419,38 @@ form
       margin-top: 30px;
       display: flex;
     }
+    .fb
+    {
+      background-color: darkslateblue;
+      cursor: pointer;
+    }
+    .go
+    {
+      background-color: #ff512f;
+      cursor: pointer;
+    }
+    .register
+    {
+        margin-left: 4px;
+        background-color: #1845ad;;
+        color: white;
+    }
     .social div{
-      background: red;
+    //   background: red;
+     
       width: 150px;
       border-radius: 3px;
       padding: 5px 10px 10px 5px;
-      background-color: rgba(255,255,255,0.27);
+    //   background-color: rgba(255,255,255,0.27);
       color: #eaf0fb;
       text-align: center;
     }
     .social div:hover{
       background-color: rgba(255,255,255,0.47);
+      color: #080710;
     }
     .social .fb{
-      margin-left: 25px;
+      margin-left: 4px;
     }
     .social i{
       margin-right: 4px;
@@ -443,5 +459,62 @@ form
 
 
     // Login Page
+    .button_slide {
+        color: rgb(216, 2, 134);
+        border: 2px solid rgb(216, 2, 134);
+        border-radius: 0px;
+        padding: 18px 36px;
+        display: inline-block;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 14px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 0 #D80286;
+        -webkit-transition: ease-out 0.4s;
+        -moz-transition: ease-out 0.4s;
+        transition: ease-out 0.4s;
+      }
+      .slide_left:hover {
+        box-shadow: inset 0 0 0 50px #D80286;
+        color: white;
+      }
+      .register-block
+      {
+        display: none;
+      }
+      
     
+}
+
+.badges
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    justify-content: center;
+    div 
+    {
+        width: 200px;
+        height: 200px;
+        color: white;
+        position: relative;
+        border-radius: 50%;
+        justify-content: center;
+        border: 4px solid white;
+        margin:  10px ;
+        span 
+        {
+            position: absolute;
+            top: 80px;
+            font-size: 30px;
+            font-weight: 800;
+            
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .badges
+    {
+        grid-template-columns: auto auto;
+    }
 }

@@ -1,16 +1,16 @@
 import React from 'react'
 import './pstyle.scss';
 import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux';
-import iron_man from '../images/iron-man.jpg';
-import { login } from '../features/user';
+// import { useDispatch } from 'react-redux';
+// import iron_man from '../images/iron-man.jpg';
+
 import car1 from '../images/car1.jpg';
 import car2 from '../images/car2.jpg';
 import car3 from '../images/car3.jpg';
 import car4 from '../images/car4.jpg';
-import gamer from '../images/gamer2.jpg';
+// import gamer from '../images/gamer2.jpg';
 export default function Home() {
-  setTimeout(applycolor,2000);
+  setTimeout(applycolor,1000);
   function sleep(ms) {
     // console.log("c")
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -67,7 +67,7 @@ export default function Home() {
      }
   }
   const user=useSelector((state)=>state.user.value);
-  const dispatch=useDispatch();
+  // const dispatch=useDispatch();
   return (
     <div className='home' style={{textAlign:"center"}}>
       {/* <div>
@@ -136,6 +136,7 @@ export default function Home() {
         </div>
       </div>
      <br/>
+     {/* Score Card  */}
     <div className='player-details' style={{color:"whitesmoke"}}>
       <h2 style={{textDecoration:"underline"}}>Player Details</h2>
       <h1>Player ID : {user.id}</h1>
@@ -144,7 +145,23 @@ export default function Home() {
       <h1>Date of Join : {user.dob}</h1>
       <h1>Score : ???</h1>
     </div>
-     
+     <br/>
+      {/* Badges */}
+      <div className='badges'>
+        <div className='first-rank'>
+          <span>1</span>
+        </div>
+        <div className='Second-rank'>
+          <span>2</span>
+        </div>
+        <div className='third-rank'>
+          <span>3</span>
+        </div>
+        <div className='fourth-rank'>
+          <span>4</span>
+        </div>
+      </div>
+      <br/>
       {/* <button 
       onClick={()=>{
         
@@ -182,12 +199,7 @@ export default function Home() {
        No Parking 
       </div>
 
-      {/* <div>
-        <
-      </div> */}
-      {/* <div class="mask1">
-        <img src={require('../images/mask.png')} alt="Cinque Terre" width="600" height="400" />
-      </div> */}
+      <br/>
     
     </div>
   )

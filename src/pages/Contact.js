@@ -14,9 +14,8 @@ export default function Contact() {
     var cmp = e.target["1"].value;
     var dob = e.target["2"].value;
     var user ={
-      id:25,
       name :name,
-      Team : cmp
+      address : cmp
     }
     dispatch(login({ id: 1, name: name, company: cmp, dob: dob }));
     // fetch("http://localhost:3001/add/user",{
@@ -51,13 +50,14 @@ export default function Contact() {
                 name="name"
                 required
                 placeholder="Enter Your Name ..."
+                
               />
             </div>
             <div>
-              <input type="text" name="Team" required placeholder="Enter Team Name" />
+              <input type="text" name="address" required placeholder="Enter Team Name" />
             </div>
             <div>
-              <label>Date of Join :  </label>
+              <label htmlFor="dob">Date of Join :  </label>
               <input type="date" name="dob" placeholder="Date of Birth" />
             </div>
 

@@ -2,7 +2,8 @@
 import React,{useEffect,useState} from 'react'
 import './cstyle.scss';
 import styled from "styled-components";
-
+import { event } from 'jquery';
+import axios from 'axios';
 // Styled component named StyledButton
 const StyledButton = styled.button`
   background-color: black;
@@ -36,13 +37,28 @@ color:white;
 export default function Person() {
     const [user, setUser] = useState([]);
     const [EditUsers,setEditUsers]=useState([{}]);
-
+    const [CurrentEditUser,setCurrentEditUser]=useState('');
     const [selectedUser,setSelectedUser]=useState([]);
     // console.log(selectedUser);
-  const Esubmit=()=>
+  const UPdate=(event)=>
   {
-    console.log("Form Submitted");
+    event.preventDefault();
+    console.log(EditUsers[0].address);
+    var name=document.getElementById('eusername').value;
+    var team=document.getElementById('eteamname').value;
+    var user={
+      name:name,
+      team:team
+    }
+    axios.put(`http://localhost:3001/edit/user/`+EditUsers[0].ID, { user })
+    .then(res => {
+      console.log(res);
+      // console.log(res.data);
+      setCurrentEditUser(name);
+    })
+  
   }
+  
   const editUser=(id)=>
   {
     console.log("Editing User : "+ id);
@@ -99,7 +115,7 @@ export default function Person() {
 
   useEffect(() => {
     fetchData();
-  },[user])
+  },[user,CurrentEditUser,EditUsers])
 
   // console.log(user);
 
@@ -162,7 +178,7 @@ export default function Person() {
               close
             </span>
             <div>
-              <form onSubmit={Esubmit}>
+              <form onSubmit={UPdate} >
                 <div>
                   <label >Name : </label>
                   <input type='text' id="eusername" defaultValue={EditUsers[0].name}  placeholder='Enter the name ' />
@@ -171,7 +187,8 @@ export default function Person() {
                   <label>Team : </label>
                   <input type="text" id="eteamname" defaultValue={EditUsers[0].address} placeholder='Enter the Team Name' />
                 </div>
-                <input  type="submit" id="change-btn-edit" value="Change " />
+                {/* <button   id="change-btn-edit" onClick={()=>{UPdate(EditUsers[0].id)}} value="Change " >Change</button>  */}
+                <input id="change-btn-edit" value="Change" type='submit'/>
                 {/* <input type="reset" /> */}
               </form>
             </div>

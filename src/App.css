@@ -76,7 +76,7 @@
   color: #fff;
   cursor: pointer;
   position: relative;
-  text-align: center;
+  /* text-align: center; */
   text-decoration: none;
   z-index: 1;
   transform: perspective(1000px);

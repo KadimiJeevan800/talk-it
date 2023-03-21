@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "./style.scss";
-import { login,logout } from "../features/Session";
+import { logout } from "../features/Session";
 import { useDispatch } from "react-redux";
 // import logo from "../images/logo.jpg";
 import logo from '../images/gamer-logo.jpg';
@@ -18,7 +18,7 @@ export default function header() {
   {
     console.log("Logout Process...");
     document.getElementById('logout-btn').style.display="none";
-        // dispatch(login({id:1,name:"Alien",password:"Alien",isLogin:0}));
+        
         dispatch(logout({id:1,name:"Alien",password:"Alien",isLogin:0}));
   }
   function menu() {
