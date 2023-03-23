@@ -1,4 +1,3 @@
-
 import React,{useEffect,useState} from 'react'
 import './cstyle.scss';
 import styled from "styled-components";
@@ -53,9 +52,15 @@ export default function Person() {
       // console.log(res.data);
       setCurrentEditUser(name);
     })
-  
+    document.getElementById('form-element-div').style.display="block";
+    document.getElementById('form-edit').style.display="none";
+    setTimeout(DisplayNone,2000);
   }
   
+  const DisplayNone= ()=>
+  {
+    document.getElementById('form-element-div').style.display="none";
+  }
   const editUser=(id)=>
   {
     console.log("Editing User : "+ id);
@@ -65,7 +70,7 @@ export default function Person() {
     .then((data) => {setEditUsers(data);});
     var ele=document.getElementById('form-edit');
     ele.style.display="block";
-   
+ 
   //  document.getElementById('eusername').value=selectedUser[0].name;
   //  ele.scrollIntoView();
   window.scrollTo(0,100);
@@ -168,6 +173,9 @@ export default function Person() {
   
           </div>
         </div>
+        <div className='SuccessBox' style={{display:"none",background:"green",color:"white",padding:"15px",textTransform:"captalize"}} id='form-element-div' >
+            Changes made Successfully...
+        </div>
 
         <div className='Edit-table-form' id="form-edit">
         
@@ -177,7 +185,7 @@ export default function Person() {
             </span>
             <div>
               <form onSubmit={UPdate} >
-                <div>
+                <div >
                   <label >Name : </label>
                   <input type='text' id="eusername" defaultValue={EditUsers[0].name}  placeholder='Enter the name ' />
                 </div>

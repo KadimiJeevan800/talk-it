@@ -25,9 +25,8 @@ export default function Blogs() {
         count = count + 1;
         dispatch(add({ msg: form }));
         // console.log(form);
-        
-        form = ' ';
-        // console.log(form)
+   
+        form = '';
         document.getElementById('pop-up-msg').style.display = "block";
         document.getElementById('pop-up-msg').innerText = "Posted";
         setTimeout(() => {

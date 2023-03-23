@@ -67,7 +67,7 @@ export default function Home() {
      }
   }
   const user=useSelector((state)=>state.user.value);
-  // const dispatch=useDispatch();
+
   return (
     <div className='home' style={{textAlign:"center"}}>
       {/* <div>
@@ -135,6 +135,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+     <br/>
+     {/* <div style={{color:"white"}} id='Date' onMouseOver={DisplayDate}>
+      1
+     </div> */}
      <br/>
      {/* Score Card  */}
     <div className='player-details' style={{color:"whitesmoke"}}>
