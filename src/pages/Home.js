@@ -66,7 +66,7 @@ export default function Home() {
       await sleep(2000);
      }
   }
-  const user=useSelector((state)=>state.user.value);
+  const user=useSelector((state)=>state.userLogin.value);
 
   return (
     <div className='home' style={{textAlign:"center"}}>
@@ -145,8 +145,8 @@ export default function Home() {
       <h2 style={{textDecoration:"underline"}}>Player Details</h2>
       <h1>Player ID : {user.id}</h1>
       <h1>Player name : {user.name}</h1>
-      <h1> Team : {user.company} </h1>
-      <h1>Date of Join : {user.dob}</h1>
+      <h1> Team : {user.team} </h1>
+      <h1>Date of Join : {user.doj}</h1>
       <h1>Score : ???</h1>
     </div>
      <br/>

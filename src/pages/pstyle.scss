@@ -434,6 +434,7 @@ form
         margin-left: 4px;
         background-color: #1845ad;;
         color: white;
+        cursor: pointer;
     }
     .social div{
     //   background: red;
@@ -519,4 +520,18 @@ form
     {
         grid-template-columns: auto auto;
     }
+}
+.Success-banner
+{
+    display: none;
+    padding: 15px;
+    background-color: green;
+    color: white;
+}
+.Invalid{
+    color: red;
+}
+.Try 
+{
+    color: green;
 }

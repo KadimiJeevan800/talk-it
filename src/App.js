@@ -14,6 +14,7 @@ import Blogs from "./pages/Blogs";
 import Puzzle from "./games/Puzzle";
 import Person from "./contact/Person";
 import Contact from "./pages/Contact";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,7 @@ export default function App() {
           {/* <Route path="blogs" element={<Blogs />} /> */}
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<Nopage />} />
+        
         </Route>
       </Routes>
     </BrowserRouter>

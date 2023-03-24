@@ -57,7 +57,7 @@ export default function header() {
             </Link>
             <ul class="dropdown-menu">
               <li>
-                <Link to="/person">Persons</Link>
+                <Link to="/person">Gamers</Link>
               </li>
               <li>
                 <Link to="/act2">action 2</Link>
@@ -112,7 +112,7 @@ export default function header() {
             <ul className="drop" style={{ flexDirection: "column" }}>
               <li>
                 {" "}
-                <Link to="/person">People</Link>
+                <Link to="/person">Gamers</Link>
               </li>
               <li>
                 {" "}

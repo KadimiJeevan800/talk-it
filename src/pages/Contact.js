@@ -24,11 +24,16 @@ export default function Contact() {
     // })
     axios.post(`http://localhost:3001/add/user`, { user })
     .then(res => {
-      console.log(res);
+      // console.log(res);
       console.log(res.data);
     })
-
+    document.getElementById('success-bnr').style.display="block";
+    setTimeout(DisplayNone,2000);
     console.log("Data Inserted ...");
+  }
+  const DisplayNone=()=>
+  {
+    document.getElementById('success-bnr').style.display="None";
   }
   return (
     <div className="Contact-page" style={{ textAlign: "center" }}>
@@ -37,6 +42,9 @@ export default function Contact() {
       */}
       <img src={require("../images/con2.jpg")} alt="cover page" />
       <h2>Let's Start a Converstion</h2>
+      <div className="Success-banner" id="success-bnr">
+        Successfully 
+      </div>
       <div>
         <div>
          Personal Information :-   <hr></hr> <hr/>

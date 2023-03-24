@@ -35,11 +35,12 @@ export default function Person() {
     const [EditUsers,setEditUsers]=useState([{}]);
     const [CurrentEditUser,setCurrentEditUser]=useState('');
     const [selectedUser,setSelectedUser]=useState([]);
+    const [flag,setFlag]=useState(0);
     // console.log(selectedUser);
   const UPdate=(event)=>
   {
     event.preventDefault();
-    console.log(EditUsers[0].address);
+    console.log(EditUsers[0]);
     var name=document.getElementById('eusername').value;
     var team=document.getElementById('eteamname').value;
     var user={
@@ -96,6 +97,11 @@ export default function Person() {
   const getUser=()=>
   {
     var id=document.getElementById('uid').value;
+    if(id==='')
+    {
+      setFlag(0);
+    }
+    setFlag(1);
     // console.log(id);
     if(id==='')
     {
@@ -135,6 +141,8 @@ export default function Person() {
             <button onClick={getUser} className="button" style={{marginLeft:"10px"}}><span className="material-symbols-outlined" style={{fontSize:"17px"}}>search</span> </button>
           </StyledDiv>
         </div>
+      {
+        flag ?
 
         <div style={{display:"flex",margin:"20px 0px",justifyContent:"center"}}>
         <div className='anime'> 
@@ -144,15 +152,19 @@ export default function Person() {
   
         </div>
       </div>
+        :
+        ""
+      }
+        
      
       
        
-
+        
         <div>
           {
           selectedUser.length===0 ? 
           <div>
-              "No Data Found "
+              {flag ?  "No Data Found ":" "}
           </div>
           : selectedUser.map((su)=>
           (
@@ -164,15 +176,20 @@ export default function Person() {
             </div>
           ))}
         </div>
-
-        <div style={{display:"flex",justifyContent:"center",margin:"20px 0px"}}>
-          <div className='anime'> 
-
-          </div>
-          <div className='anime'> 
+          {
+            flag ?
+            <div style={{display:"flex",justifyContent:"center",margin:"20px 0px"}}>
+            <div className='anime'> 
   
+            </div>
+            <div className='anime'> 
+    
+            </div>
           </div>
-        </div>
+            :
+            ""
+          }
+       
         <div className='SuccessBox' style={{display:"none",background:"green",color:"white",padding:"15px",textTransform:"captalize"}} id='form-element-div' >
             Changes made Successfully...
         </div>
@@ -187,7 +204,7 @@ export default function Person() {
               <form onSubmit={UPdate} >
                 <div >
                   <label >Name : </label>
-                  <input type='text' id="eusername" defaultValue={EditUsers[0].name}  placeholder='Enter the name ' />
+                  <input type='text' id="eusername" defaultValue={EditUsers[0].name}  placeholder={EditUsers[0].name}/>
                 </div>
                 <div>
                   <label>Team : </label>
